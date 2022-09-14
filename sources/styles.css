@@ -3,10 +3,13 @@ html {
 }
 body {
   background: linear-gradient(
-    103.3deg,
-    rgb(190, 11, 215) -18.7%,
-    rgb(246, 234, 11) 90.9%
+    0deg,
+    rgb(183, 9, 246) -19%,
+    rgb(101, 238, 253) 90%
   );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .umbrella-image {
   position: fixed;
@@ -18,18 +21,24 @@ body {
   border-radius: 10px;
   box-shadow: 5px 5px 5px black;
   border: 1px solid black;
-  background-color: #ffe9e3;
+  background-color: #c5f1ff;
 }
 
-.search-button {
-  border: 3px solid black;
-  padding: 10px;
+.searchCityButton {
+  border: 1px solid black;
+  padding: 5px;
   border-radius: 10%;
   color: rgb(190, 11, 215);
+  font-size: 1.4rem;
+}
+
+#city-input {
+  width: 200px;
 }
 h5 {
-  font-size: 2.2rem;
+  font-size: 3rem;
   text-align: center;
+  font-style: bold;
 }
 
 ul {
@@ -44,4 +53,14 @@ p {
 #code-tag {
   margin-top: 20px;
   font-size: 2rem;
+}
+
+.github-link {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.github-link:hover {
+  color: white;
 }
