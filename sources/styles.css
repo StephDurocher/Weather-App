@@ -11,6 +11,9 @@ body {
   background-attachment: fixed;
   font-family: Arial, Helvetica, sans-serif;
 }
+span {
+  text-align: center;
+}
 .umbrella-image {
   position: fixed;
 }
