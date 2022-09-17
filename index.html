@@ -17,53 +17,51 @@
   <body>
     <div class="container">
       <div class="weather-app">
-        <div class="card" style="width: 50rem">
-          <div class="card-body">
-            <h5 class="card-title" id="city"></h5>
-            <form class="d-flex" role="search" id="search-form">
+       <form class="mb-3" role="search" id="search-form">
+          <div class="row">
+            <div class="col-9">
               <input
                 class="form-control me-2"
                 type="search"
                 placeholder="Search a city..."
                 id="city-input"
                 autocomplete="off"
-              />
+               />
+            </div>
+            <div class="col-3">
               <button class="searchCityButton" value="Search" type="submit">
                 Search
               </button>
-            </form>
+            </div>
           </div>
-          <hr />
-          <div class="container information">
-            <div class="row">
-              <div class="col-12">
-                <p>Today</p>
-                <ul>
-                  <li id="date">
-                  </li>
-                  <li id="time"></li>
-                  <li id="wind">Wind Speed</li>
-                  <li id="humidity">Humidity</li>
-                </ul>
-                <span id="description">Description: </span>
-                <span id="temperature">Temperature</span>
-                <span id="weather-icon"></span>
-                <div class="d-flex weather-temperature">
-                  <img src="" id="weather-icon" />
-                  <div>
-                    <strong></strong>
-                    <span class="units">
-                      <a href="#" id="fahrenheit-link">℉</a></span
-                    >
-                       | <a href="#" id="celcius-link">℃ </a></span
-                    >
-                  </div>
+        </form>
+       <div class="container information">
+        <div class="row">
+          <div class="overview">
+            <h1>Today</h1>
+            <h1 id="city"></h1>
+            <h2 id="date"></h2>
+            <h2 id="time"></h2>
+        <div class="row">
+          <div class="col-6">
+          <span id="temperature">Temperature</span>
+          <span id="weather-icon"></span>
+            <div class="d-flex weather-temperature">
+            <img src="" id="weather-icon" />
+            <h3 id="description"></h3>
+            <div>
+              <span class="units">
+                <a href="#" id="fahrenheit-link">℉</a></span >
+                | <a href="#" id="celcius-link">℃ </a></span >
                 </div>
-                <ul>
-                  <li></li>
-                  <li></li>
-                </ul>
               </div>
+          </div>
+        <div class="col6">
+        <ul>
+          <li id="humidity">%</li>
+          <li id="wind">wind</li>
+        </ul>
+        </div>
               <hr />
               <div class="weather-projection">
                 <p>Tomorrow</p>
@@ -92,7 +90,6 @@
               </div>
             </div>
           </div>
-        </div>
         <p id="code-tag">
           <a
             href="https://github.com/StephDurocher/Weather-App"
