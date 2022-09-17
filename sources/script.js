@@ -24,7 +24,7 @@ function formatDate(timestamp) {
 function search(city) {
   let endpoint = "api.openweathermap.org";
   let apiKey = "21f347fd627fde024ba524524a760ab9";
-  let apiUrl = `https://${endpoint}/data/2.5/weather?q=${city}&appid=${apiKey}`;
+  let apiUrl = `https://${endpoint}/data/2.5/weather?q=${city}&appid=${apiKey}&unit=imperial`;
 
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -49,17 +49,15 @@ function displayTemperature(response) {
   fahrenheitTemperature = response.data.main.temp;
 
   windElement.innerHTML = response.data.wind.speed;
-  humidityElement = response.data.main.humidity;
-  temperatureElement = Math.round(fahrenheitTemperature);
+  humidityElement.innerHTML = response.data.main.humidity;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
-
-  icon.setAttribute(
+  iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 let form = document.querySelector("search-form");
