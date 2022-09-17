@@ -20,7 +20,7 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
 
   if (hours > 11) {
-    return `${day} <br/> ${hours}:${minutes}PM`;
+    return `${day} <br/> ${hours}:${minutes} PM`;
   } else {
     return `${day} <br/> ${hours}:${minutes}AM`;
   }
@@ -55,9 +55,9 @@ function displayTemperature(response) {
   let fahrenheitTemperature = Math.round(response.data.main.temp);
   let windSpeed = response.data.wind.speed;
 
-  let tempMessage = `It is ${fahrenheitTemperature}º`;
-  let windSpeedMessage = `Wind Speed ${windSpeed}mph`;
-  let humidityMessage = `Humidity ${humidityData}%`;
+  let tempMessage = `It is currently ${fahrenheitTemperature}º`;
+  let windSpeedMessage = `Wind Speed ${windSpeed} mph`;
+  let humidityMessage = `Current Humidity ${humidityData}%`;
 
   wind.innerHTML = windSpeedMessage;
   humidity.innerHTML = humidityMessage;
