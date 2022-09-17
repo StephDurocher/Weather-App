@@ -38,28 +38,27 @@
        <div class="container information">
         <div class="row">
           <div class="overview">
-            <h1>Today</h1>
             <h1 id="city"></h1>
             <h2 id="date"></h2>
             <h2 id="time"></h2>
         <div class="row">
-          <div class="col-6">
-          <span id="temperature"></span>
-            <div class="d-flex weather-temperature">
-            <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"  class="float-left" alt="clear" id="weather-icon" />
-            <h3 id="description"></h3>
-            <div>
-              <span class="units">
+          <div class="col-8">
+          <p id="temperature"></p>
+          <span class="units">
                 <a href="#" id="fahrenheit-link">℉</a></span >
                 | <a href="#" id="celcius-link">℃ </a></span >
-                </div>
-              </div>
+            <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"  class="float-left" alt="clear" id="weather-icon" />
           </div>
-        <div class="col6">
+        <div class="col-4">
         <ul>
           <li id="humidity">%</li>
           <li id="wind">wind</li>
         </ul>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h3 id="description"></h3>
+          </div>   
         </div>
               <hr />
               <div class="weather-projection">

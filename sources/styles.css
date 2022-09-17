@@ -11,18 +11,21 @@ body {
   background-attachment: fixed;
   font-family: Arial, Helvetica, sans-serif;
 }
-span {
-  margin: 0 auto;
-  text-align: center;
-  color: rgb(190, 11, 215);
-}
 
+.form-control,
 .searchCityButton {
+  margin-top: 20px;
   border: 1px solid black;
   padding: 5px;
-  border-radius: 10%;
+  border-radius: 10px;
   color: rgb(190, 11, 215);
   font-size: 1.4rem;
+  background-color: white;
+  font-style: bold;
+}
+.form-control {
+  margin-left: 30px;
+  width: 300px;
 }
 .weather-app {
   margin: 0 auto;
@@ -39,22 +42,27 @@ span {
   width: 200px;
 }
 
-h1,
-h2,
+#temperature,
+#units {
+  text-align: left;
+  display: inline;
+}
+#description {
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+h1 {
+  font-size: 2.4rem;
+  text-align: left;
+}
+h2 {
+  text-align: left;
+  font-size: 1.8rem;
+}
 h3 {
-  font-size: 3rem;
+  font-size: 1.6rem;
   text-align: center;
   font-style: bold;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0px;
-}
-
-li,
-p {
-  text-align: center;
 }
 
 #code-tag {

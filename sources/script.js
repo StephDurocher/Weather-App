@@ -18,13 +18,18 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+
+  if (hours > 11) {
+    return `${day} <br/> ${hours}:${minutes}PM`;
+  } else {
+    return `${day} <br/> ${hours}:${minutes}AM`;
+  }
 }
 
 function search(city) {
   let endpoint = "api.openweathermap.org";
   let apiKey = "21f347fd627fde024ba524524a760ab9";
-  let apiUrl = `https://${endpoint}/data/2.5/weather?q=${city}&appid=${apiKey}&unit=imperial`;
+  let apiUrl = `https://${endpoint}/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -38,19 +43,26 @@ function handleSubmit(event) {
 }
 
 function displayTemperature(response) {
-  let temperatureElement = document.querySelector("#temperature");
+  let temperature = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
-  let humidityElement = document.querySelector("#humidity");
-  let windElement = document.querySelector("#wind");
+  let humidity = document.querySelector("#humidity");
+  let wind = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#weather-icon");
 
-  fahrenheitTemperature = response.data.main.temp;
+  let humidityData = response.data.main.humidity;
+  let fahrenheitTemperature = Math.round(response.data.main.temp);
+  let windSpeed = response.data.wind.speed;
 
-  windElement.innerHTML = response.data.wind.speed;
-  humidityElement.innerHTML = response.data.main.humidity;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  let tempMessage = `It is ${fahrenheitTemperature}º`;
+  let windSpeedMessage = `Wind Speed ${windSpeed}mph`;
+  let humidityMessage = `Humidity ${humidityData}%`;
+
+  wind.innerHTML = windSpeedMessage;
+  humidity.innerHTML = humidityMessage;
+  temperature.innerHTML = tempMessage;
+
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
@@ -63,7 +75,6 @@ function displayTemperature(response) {
 let form = document.querySelector("search-form");
 addEventListener("submit", handleSubmit);
 // F | C links
-let fahrenheitTemperature = null;
 
 //function showCelciusTemperature(event) {
 //event.preventDefault();
