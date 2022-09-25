@@ -17,89 +17,74 @@
   <body>
     <div class="container">
       <div class="container" id="background">
-      <h1 id="title">Weather Forecast</h1>
-       <div class="weather-app">
-        <form class="mb-3" role="search" id="search-form">
-          <div class="row">
-            <div class="col-6">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search a city..."
-                id="city-input"
-                autocomplete="off"
-               />
+        <h1 id="title">Weather Forecast</h1>
+        <img src="/media/cat.png" id="cat-pic" class="all-mad-here" />
+        <div class="weather-app">
+          <form class="mb-3" role="search" id="search-form">
+            <div class="container text-center">
+              <div class="row">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search a city..."
+                  id="city-input"
+                  autocomplete="off"
+                />
+                <button class="searchCityButton" value="Search" type="submit">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-search"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
-            <div class="col-6">
-              <button class="searchCityButton" value="Search" type="submit">
-                Search
-              </button>
+          </form>
+          <hr />
+          <div class="container text-center" id="container-information">
+            <div class="row" id="forecast-row">
+              <div class="overview"></div>
+              <div class="col-6">
+                <h1 id="city"></h1>
+                <p id="temperature"></p>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                  class="float-left"
+                  alt="clear"
+                  id="weather-icon"
+                /><br />
+                <span class="units">
+                  <a href="#" id="fahrenheit-link">℉</a>
+                  | <a href="#" id="celcius-link">℃ </a>
+                </span>
+              </div>
+              <div class="col-6" id="todays-details">
+                <h2 id="date">Saturday 11:05</h2>
+                <h2 id="description">Sunny</h2>
+                <h2 id="humidity">Humidity: 40%</h2>
+                <h2 id="wind">Wind: 5 mph</h2>
+              </div>
             </div>
           </div>
-        </form>
-       <div class="container information">
-        <div class="row">
-          <div class="overview">
-            <h1 id="city"></h1>
-            <h2 id="date"></h2>
-            <h2 id="time"></h2>
-        <div class="row">
-          <div class="col-8">
-          <p id="temperature"></p>
-          <span class="units">
-                <a href="#" id="fahrenheit-link">℉</a></span >
-                | <a href="#" id="celcius-link">℃ </a></span >
-            <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"  class="float-left" alt="clear" id="weather-icon" />
-          </div>
-        <div class="col-4">
-        <ul>
-          <li id="humidity">%</li>
-          <li id="wind">wind</li>
-        </ul>
+          <hr />
+          <div class="weeklyForecast" id="weekForecast"></div>
         </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <h3 id="description"></h3>
-          </div>   
-        </div>
-              <hr />
-              <div class="weather-projection">
-                <p>Tomorrow</p>
-                <span class="weather-forecast-temperature-min"></span>
-                <span class="weather-forecast-temperature-max"></span>
-              </div>
-            </div>
-            <hr />
-            <div class="weather-projection">
-              <div class="col-12">
-                <p>Day 3</p>
-                <span class="weather-forecast-temperature-min"></span>
-                <span class="weather-forecast-temperature-max"></span>
-              </div>
-              <hr />
-              <div class="weather-projection">
-                <p>Day 4</p>
-                <span class="weather-forecast-temperature-min"></span>
-                <span class="weather-forecast-temperature-max"></span>
-              </div>
-              <hr />
-              <div class="weather-projection">
-                <p>Day 5</p>
-                <span class="weather-forecast-temperature-min"></span>
-                <span class="weather-forecast-temperature-max"></span>
-              </div>
-            </div>
-          </div>
-        <p id="code-tag">
-          <a
-            href="https://github.com/StephDurocher/Weather-App"
-            class="github-link"
-            >Open Source Code</a
-          >
-          by Stephanie Durocher
-        </p>
       </div>
-     </div>
+      <p id="code-tag">
+        <a
+          href="https://github.com/StephDurocher/Weather-App"
+          class="github-link"
+          >Open Source Code</a
+        >
+        by Stephanie Durocher
+      </p>
     </div>
     <script src="./sources/script.js"></script>
   </body>

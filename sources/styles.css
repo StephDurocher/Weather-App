@@ -6,11 +6,12 @@ body {
   color: white;
 }
 #background {
-  background-image: url("/media/halloween.png");
+  background: url("/media/wonderland-forest.jpeg");
   background-repeat: no-repeat;
   background-attachment: local;
   background-size: cover;
   border: 5px solid black;
+  border-radius: 10px;
   min-height: 90vh;
   margin-top: 10px;
 }
@@ -19,8 +20,8 @@ body {
   font-size: 30px;
   margin-top: 15px;
 }
-ul {
-  list-style: none;
+.todays-details {
+  text-align: center;
 }
 .form-control,
 .searchCityButton {
@@ -38,48 +39,45 @@ ul {
 }
 .form-control {
   margin-left: 30px;
-  width: 400px;
+  width: 500px;
 }
 
 .searchCityButton {
-  width: 150px;
+  width: 80px;
 }
 .weather-app {
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 20px;
   font-size: 2rem;
   border-radius: 10px;
   box-shadow: 5px 5px 5px black;
   border: 1px solid rgb(27, 25, 25);
-  background-color: #102926;
+  background-color: rgb(156, 63, 156);
   max-width: 500px;
 }
 
 #city-input {
-  width: 200px;
+  width: 300px;
 }
 
-#temperature,
-#units {
+#temperature {
   text-align: left;
   display: inline;
+  color: black;
 }
-#description {
+
+#celcius-link,
+#fahrenheit-link {
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+}
+#description,
+#humidity,
+#wind {
   padding-bottom: 10px;
   padding-top: 5px;
-}
-h1 {
-  font-size: 2.4rem;
-  text-align: left;
-}
-h2 {
-  text-align: left;
-  font-size: 1.8rem;
-}
-h3 {
-  font-size: 1.6rem;
-  text-align: center;
-  font-style: bold;
+  font-size: 16px;
 }
 
 #code-tag {
@@ -87,13 +85,70 @@ h3 {
   font-size: 2rem;
 }
 
+p {
+  color: rgb(156, 63, 156);
+}
 .github-link {
-  color: white;
+  color: black;
   text-decoration: none;
   cursor: pointer;
   font-style: italic;
 }
 
 .github-link:hover {
-  color: yellow;
+  color: purple;
+}
+#forecast-row {
+  text-align: center;
+}
+.weather-forecast-date {
+  text-align: center;
+  color: black;
+  font-size: 16px;
+}
+.weather-forecast-temperature-max {
+  color: black;
+  text-align: center;
+  font-size: 14px;
+}
+.weather-forecast-temperature-min {
+  color: pink;
+  text-align: center;
+  font-size: 14px;
+}
+
+#cat-pic {
+  max-height: 175px;
+  object-position: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+.all-mad-here {
+  animation-name: mad-here;
+  animation-timing-function: ease-in;
+  max-width: 200px;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes mad-here {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+
+  75% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
 }

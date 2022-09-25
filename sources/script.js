@@ -26,6 +26,13 @@ function formatDate(timestamp) {
   }
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function search(city) {
   let endpoint = "api.openweathermap.org";
   let apiKey = "21f347fd627fde024ba524524a760ab9";
@@ -33,13 +40,18 @@ function search(city) {
 
   axios.get(apiUrl).then(displayTemperature);
 }
-let searchButton = document.querySelector(".searchCityButton");
-searchButton.addEventListener("submit", handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
   search(cityInput.value);
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "8402ccd9e55983fce71eeeaa1d2bd1fc";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response) {
@@ -55,9 +67,9 @@ function displayTemperature(response) {
   let fahrenheitTemperature = Math.round(response.data.main.temp);
   let windSpeed = response.data.wind.speed;
 
-  let tempMessage = `It is currently ${fahrenheitTemperature}º`;
-  let windSpeedMessage = `Wind Speed ${windSpeed} mph`;
-  let humidityMessage = `Current Humidity ${humidityData}%`;
+  let tempMessage = `Temperature: ${fahrenheitTemperature}º`;
+  let windSpeedMessage = `Speed: ${windSpeed} mph`;
+  let humidityMessage = `Humidity: ${humidityData}%`;
 
   wind.innerHTML = windSpeedMessage;
   humidity.innerHTML = humidityMessage;
@@ -70,10 +82,54 @@ function displayTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#weekForecast");
+  console.log(forecastElement);
+  let forecastHTML = `<div class="row" id="forecast-row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-2">
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div> 
+          <div class="weather-forecast-temperatures">
+            <span class="weather-forecast-temperature-max">${Math.round(
+              forecastDay.temp.max
+            )}º </span> <br/>
+              <span class="weather-forecast-temperature-min">${Math.round(
+                forecastDay.temp.min
+              )}º </span>
+              </div>
+              <div class="weatherIcon"><img 
+              src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png"
+                       alt=""
+                       width="42"
+                    />
+              </div>
+      </div>
+`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 let form = document.querySelector("search-form");
 addEventListener("submit", handleSubmit);
+
+let searchButton = document.querySelector(".searchCityButton");
+searchButton.addEventListener("submit", handleSubmit);
+
+search("Paris");
+
 // F | C links
 
 //function showCelciusTemperature(event) {
@@ -87,3 +143,14 @@ addEventListener("submit", handleSubmit);
 //celciusLink.addEventListener("click", showCelciusTemperature);
 //let fahrenheitLink = document.querySelector("#fahrenheit-link");
 //fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+//<div class="col-2">
+//<div class="weather-forecast-day">
+// <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="clear" />"/>
+//  <div class="weather-forecast-temperatures">
+//  <span class="weather-forecast-temperature-max"> 10℉ </span> <br/>
+//  <span class="weather-forecast-temperature-min"> 7℉ </span>
+// </div>
+//  </div>
+//  </div>
+//  </div>
