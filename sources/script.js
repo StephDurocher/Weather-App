@@ -20,9 +20,9 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
 
   if (hours > 11) {
-    return `${day} <br/> ${hours}:${minutes} PM`;
+    return `${day}    ⏰${hours}:${minutes}`;
   } else {
-    return `${day} <br/> ${hours}:${minutes}AM`;
+    return `${day}    ⏰${hours}:${minutes}`;
   }
 }
 
@@ -129,28 +129,3 @@ let searchButton = document.querySelector(".searchCityButton");
 searchButton.addEventListener("submit", handleSubmit);
 
 search("Paris");
-
-// F | C links
-
-//function showCelciusTemperature(event) {
-//event.preventDefault();
-//}
-//function showFahrenheitTemperature(event) {
-// event.preventDefault();
-//}
-
-//let celciusLink = document.querySelector("#celcius-link");
-//celciusLink.addEventListener("click", showCelciusTemperature);
-//let fahrenheitLink = document.querySelector("#fahrenheit-link");
-//fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
-
-//<div class="col-2">
-//<div class="weather-forecast-day">
-// <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="clear" />"/>
-//  <div class="weather-forecast-temperatures">
-//  <span class="weather-forecast-temperature-max"> 10℉ </span> <br/>
-//  <span class="weather-forecast-temperature-min"> 7℉ </span>
-// </div>
-//  </div>
-//  </div>
-//  </div>

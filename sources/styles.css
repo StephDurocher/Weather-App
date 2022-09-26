@@ -3,7 +3,10 @@ html {
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
+  color: rgb(203, 37, 203);
+  font-weight: bold;
+  font-family: "Calligraffitti", cursive;
+  word-spacing: 3px;
 }
 #background {
   background: url("/media/wonderland-forest.jpeg");
@@ -17,8 +20,10 @@ body {
 }
 #title {
   text-align: center;
-  font-size: 30px;
+  font-size: 3.4rem;
   margin-top: 15px;
+  font-weight: bold;
+  color: white;
 }
 .todays-details {
   text-align: center;
@@ -32,61 +37,77 @@ body {
   color: black;
   font-size: 2rem;
   background-color: white;
-  font-style: bold;
+  font-weight: bold;
 }
-#city-input:hover {
-  color: black;
+.searchCityButton:hover {
+  background-color: #085f63;
 }
 .form-control {
-  margin-left: 30px;
+  margin-left: 50px;
   width: 500px;
 }
 
 .searchCityButton {
   width: 80px;
 }
+hr {
+  color: black;
+}
+
 .weather-app {
   margin: 0 auto;
   margin-top: 20px;
-  font-size: 2rem;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 6px -8px 20px 6px rgb(2, 23, 3, 0.7);
   border: 1px solid rgb(27, 25, 25);
-  background-color: rgb(156, 63, 156);
-  max-width: 500px;
+  background-color: #cccceaee;
+  max-width: 600px;
+  margin-bottom: 30px;
 }
 
 #city-input {
   width: 300px;
 }
 
-#temperature {
-  text-align: left;
-  display: inline;
+#city,
+#temperature,
+#date {
+  text-align: center;
   color: black;
+  font-weight: bold;
 }
 
+#temperature {
+  font-size: 2.4rem;
+  color: rgb(152, 16, 152);
+}
 #celcius-link,
 #fahrenheit-link {
-  color: black;
+  color: rgb(152, 16, 152);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 1.6rem;
 }
 #description,
 #humidity,
 #wind {
   padding-bottom: 10px;
   padding-top: 5px;
-  font-size: 16px;
+  font-size: 20px;
+  color: #085f63;
+  font-weight: bold;
 }
 
 #code-tag {
   margin-top: 20px;
   font-size: 2rem;
+  text-align: center;
+  color: rgb(152, 16, 152);
 }
 
 p {
-  color: rgb(156, 63, 156);
+  color: white;
+  text-align: center;
+  font-size: 2.2rem;
 }
 .github-link {
   color: black;
@@ -96,29 +117,24 @@ p {
 }
 
 .github-link:hover {
-  color: purple;
+  color: #085f63;
 }
 #forecast-row {
   text-align: center;
 }
 .weather-forecast-date {
   text-align: center;
-  color: black;
-  font-size: 16px;
+  color: #27296d;
+  font-size: 2rem;
 }
-.weather-forecast-temperature-max {
-  color: black;
-  text-align: center;
-  font-size: 14px;
-}
+.weather-forecast-temperature-max,
 .weather-forecast-temperature-min {
-  color: pink;
-  text-align: center;
-  font-size: 14px;
+  color: #085f63;
+  font-size: 1.8rem;
 }
 
 #cat-pic {
-  max-height: 175px;
+  max-height: 185px;
   object-position: center;
   display: block;
   margin-left: auto;
