@@ -35,7 +35,7 @@ function formatDay(timestamp) {
 
 function search(city) {
   let endpoint = "api.openweathermap.org";
-  let apiKey = "21f347fd627fde024ba524524a760ab9";
+  let apiKey = "97c2f6a3b34509ac62090edc5d18d949";
   let apiUrl = `https://${endpoint}/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayTemperature);
@@ -49,7 +49,7 @@ function handleSubmit(event) {
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiKey = "8402ccd9e55983fce71eeeaa1d2bd1fc";
+  let apiKey = "97c2f6a3b34509ac62090edc5d18d949";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
